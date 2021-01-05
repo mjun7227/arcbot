@@ -9,7 +9,7 @@ bot = commands.Bot(command_prefix='대립이 ')
 async def on_ready():
     print("파괴된 탑에서 깨어나게 된 그녀가 첫 번째로 본 것은 공중에서 희미하게 흩날리고 있던 유리 조각들이었으며, 조각들은 곧 하얀 세상으로 그녀를 인도하였다.")
     await bot.change_presence(status=discord.Status.online)
-    await bot.change_presence(activity=discord.Game(name="대립이 [명령어]\n아르케아"))
+    await bot.change_presence(activity=discord.Game(name="대립이 [명령어]"))
 
 @bot.command(name="ping")
 async def ping(ctx):
