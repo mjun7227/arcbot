@@ -35,7 +35,7 @@ async def choose(ctx, levelnpack:str):
 @choose.error
 async def choose_error(ctx,error):
     if error.param.name == 'levelnpack':
-        await ctx.send(Song=random.choice(Bot_Data.Songs_by_Level[random.choice(Songs_by_Level.keys())]))
+        await ctx.send(Song=random.choice(Bot_Data.Songs_by_Level[random.choice(Bot_Data.Songs_by_Level.keys())]))
     else:
         await ctx.send("잘 모르겠어요....\n명령어 ex) 대립이 선곡 [레벨]")
 
