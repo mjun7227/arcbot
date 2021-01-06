@@ -34,8 +34,11 @@ async def choose(ctx, levelnpack:str):
 
 @choose.error
 async def choose_error(ctx,error):
-
-    await ctx.send("잘 모르겠어요....\n명령어 ex) 대립이 선곡 [레벨]")
+    if isinstance(error, commands.MissingRequiredArgument):
+        if error.param.name == 'levelnpack':
+            await ctx.send(Song=random.choice(Bot_Data.Songs_by_Level[random.choice(Songs_by_Level.keys())]))
+    else:
+        await ctx.send("잘 모르겠어요....\n명령어 ex) 대립이 선곡 [레벨]")
 
 @bot.command(name="아르케아!")
 async def pro_arcaea(ctx):
