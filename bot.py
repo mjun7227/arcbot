@@ -3,14 +3,17 @@ from discord.ext import commands
 import os
 import Bot_Data
 import random
-bot = commands.Bot(command_prefix='대립이 ') 
+
+bot =commands.Bot(command_prefix='대립이 ') 
+
 
 @bot.event 
 async def on_ready():
-    print("파괴된 탑에서 깨어나게 된 그녀가 첫 번째로 본 것은 공중에서 희미하게 흩날리고 있던 유리 조각들이었으며, 조각들은 곧 하얀 세상으로 그녀를 인도하였다.")
+    print("파괴된 탑에서 깨어나게 된 그녀가 첫 번째로 본 것은 공중에서 희미하게 흩날리고 있던 유리 조각들이었으며, 조각들은 곧 하얀 세상으로 그녀를 인도하였다.")        
     await bot.change_presence(status=discord.Status.online)
     await bot.change_presence(activity=discord.Game(name="대립이 [명령어]"))
 
+    
 @bot.command(name="ping")
 async def ping(ctx):
     latancy = bot.latency
@@ -22,7 +25,7 @@ async def sing_conflict(ctx):
 
 @bot.command(pass_contxt=True,aliases=["이어진","crossover","크로스오버"])
 async def sing_crossover(ctx):
-    await ctx.send(Bot_Data.Songs_meme["crossover"])
+        await ctx.send(Bot_Data.Songs_meme["crossover"])
 
 @bot.command(name="선곡")
 async def choose(ctx, levelnpack:str):
@@ -34,13 +37,12 @@ async def choose(ctx, levelnpack:str):
 
 @choose.error
 async def choose_error(ctx,error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        if error.param.name == 'levelnpack':
-            await ctx.send(Song=random.choice(Bot_Data.Songs_by_Level[random.choice(Bot_Data.Songs_by_Level.keys())]))
+    if error.param.name =="levelnpack":
+        await ctx.send(random.choice(Bot_Data.Songs_by_Level[random.choice(list(Bot_Data.Songs_by_Level.keys()))]))
     else:
         await ctx.send("잘 모르겠어요....\n명령어 ex) 대립이 선곡 [레벨]")
 
-@bot.command(name="아르케아!")
+@bot.command(pass_context=True,name="arc")
 async def pro_arcaea(ctx):
     await ctx.send("♚♚아☆르☆케☆아♚♚가입시$$전원 히카리☜☜타이리츠100%증정※ ♜레드아크♜\
 무료증정￥ 특정조건 §§대폭풍§§★재규어★겨울 에토 루나 획득기회@@@ 즉시이동https://arcaea.lowiro.com/ko")
@@ -55,13 +57,7 @@ async def _help(ctx):
     for i in Bot_Data.BotCommands.keys():
         embed.add_field(name=i,value=Bot_Data.BotCommands[i],inline=False)
     await ctx.send(author,embed=embed)
-
-@bot.event
-async def on_command_error(ctx, error):
-    await ctx.send("잘 모르겠어요...\n명령어 목록 호출) 대립이 도움말")
-    print(error)
-
-@bot.command(name="패치노트")
+@bot.command(name="패치노트")   
 async def send_patch(ctx):
     await ctx.send(Bot_Data.patchnote)
 
@@ -73,5 +69,18 @@ async def hello(ctx):
 async def nexne(ctx):
     await ctx.send("누나ㅏㅏㅏ 나주거ㅓㅓㅓㅓㅓㅓ")
     print(ctx.message.content) 
+
+        
+
+@bot.event
+async def on_command_error(ctx,error):
+    if isinstance(error,commands.CommandNotFound):
+        await ctx.send("잘 모르겠어요...\n명령어 목록 호출) 대립이 도움말")
+    else:
+        return
+    print(error)
+
+
+
 
 bot.run(os.environ["token"])
