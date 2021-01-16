@@ -58,14 +58,13 @@ async def _help(ctx):
     await ctx.send(embed=embed)
 @bot.command(name="패치노트")   
 async def send_patch(ctx):
-    author=ctx.message.author
     embed=discord.Embed(
         colour = discord.Colour.dark_blue()
     )
     embed.set_author(name="패치노트")
     for i in Bot_Data.patchnote.keys():
         embed.add_field(name=i,value=Bot_Data.patchnote[i],inline=False)
-    await ctx.send(author,embed=embed)
+    await ctx.send(embed=embed)
 
 @bot.command(pass_contxt=True,aliases=["안녕","하위","어서오고"])
 async def hello(ctx):
