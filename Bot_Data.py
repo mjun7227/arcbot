@@ -270,4 +270,11 @@ BotCommands={
 
     
 }
-patchnote="Arcaea 3.4.0\n- 새로운 콜라보팩 O.N.G.E.K.I. Collaboration (신곡 4곡과 새로운 파트너 루나 & 미아 )\n - 무작위 곡 선택 기능 개선\n - 다양한 부분의 UI 개선 "
+patchnote={
+    "컨텐츠 추가":
+    "maimai 팩에 4곡 신규 수록\nMoonheart의 Beyond 차트 추가",
+    "기능 추가":
+    "메인 화면이 단말의 각도에 따라 움직이는 기능 추가",
+    "기타":
+    "메인 메뉴의 'More' 레이아웃에 Alice à la mode의 크레딧 추가"
+}
