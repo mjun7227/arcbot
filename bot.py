@@ -61,7 +61,7 @@ async def send_patch(ctx):
     embed=discord.Embed(
         colour = discord.Colour.dark_blue()
     )
-    embed.set_author(name="패치노트")
+    embed.set_author(name="3.4.1 패치노트")
     for i in Bot_Data.patchnote.keys():
         embed.add_field(name=i,value=Bot_Data.patchnote[i],inline=False)
     await ctx.send(embed=embed)
