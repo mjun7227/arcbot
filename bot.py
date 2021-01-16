@@ -56,7 +56,7 @@ async def _help(ctx):
     embed.set_author(name="대립이 명령어 모음")
     for i in Bot_Data.BotCommands.keys():
         embed.add_field(name=i,value=Bot_Data.BotCommands[i],inline=False)
-    await ctx.send(author,embed=embed)
+    await ctx.send(embed=embed)
 @bot.command(name="패치노트")   
 async def send_patch(ctx):
     author=ctx.message.author
