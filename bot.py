@@ -49,7 +49,6 @@ async def pro_arcaea(ctx):
 
 @bot.command(pass_contxt=True,aliases=["도움말","도움"])
 async def _help(ctx):
-    author=ctx.message.author
     embed=discord.Embed(
         colour = discord.Colour.dark_blue()
     )
